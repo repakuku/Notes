@@ -69,7 +69,7 @@ extension ContactListViewController {
 // MARK: - ContactInfoViewControllerDelegate
 extension ContactListViewController: ContactInfoViewControllerDelegate {
     func add(note: Note) {
-        storageManager.save(note: note)
+        notes.append(note)
         tableView.reloadData()
     }
 }

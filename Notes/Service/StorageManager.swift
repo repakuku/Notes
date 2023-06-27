@@ -12,7 +12,7 @@ final class StorageManager {
     static let shared = StorageManager()
 
     private let userDefaults = UserDefaults.standard
-    private let key = "Note"
+    private let key = "notes"
     
     private init() {}
     

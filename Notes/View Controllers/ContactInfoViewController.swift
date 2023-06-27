@@ -52,9 +52,8 @@ final class ContactInfoViewController: UIViewController {
     private func save() {
         guard let title = titleTextField.text else { return }
         guard let text = textField.text else { return }
-        
         let note = Note(title: title, text: text)
-        
+        storageManager.save(note: note)
         delegate.add(note: note)
         navigationController?.popViewController(animated: true)
     }
