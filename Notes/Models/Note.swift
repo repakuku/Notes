@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Note {
+struct Note: Codable {
     let title: String
     let text: String
 }

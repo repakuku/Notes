@@ -12,11 +12,22 @@ protocol ContactInfoViewControllerDelegate: AnyObject {
 }
 
 final class ContactListViewController: UITableViewController {
-    
+
     // MARK: - Private Properties
     private var notes: [Note] = []
+    private let storageManager = StorageManager.shared
     
+    // MARK: - View Life Cycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        notes = storageManager.fetchNotes()
+    }
     
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let contactVC = segue.destination as? ContactInfoViewController else { return }
+        contactVC.delegate = self
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -28,7 +39,6 @@ extension ContactListViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Note", for: indexPath)
-        
         let note = notes[indexPath.row]
         var content = cell.defaultContentConfiguration()
         
@@ -39,11 +49,6 @@ extension ContactListViewController {
         
         return cell
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let contactVC = segue.destination as? ContactInfoViewController else { return }
-        contactVC.delegate = self
-    }
 }
 
 // MARK: - UITableViewDelegate
@@ -51,12 +56,20 @@ extension ContactListViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            notes.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            storageManager.deleteNote(at: indexPath.row)
+        }
+    }
 }
 
 // MARK: - ContactInfoViewControllerDelegate
 extension ContactListViewController: ContactInfoViewControllerDelegate {
     func add(note: Note) {
-        notes.append(note)
+        storageManager.save(note: note)
         tableView.reloadData()
     }
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		074B35722A4A68A2008134DA /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074B35712A4A68A2008134DA /* Note.swift */; };
+		0762FEC52A4A71E1002DF0AB /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0762FEC42A4A71E1002DF0AB /* StorageManager.swift */; };
 		07A170A12A4A551100FEFE3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A170A02A4A551100FEFE3F /* AppDelegate.swift */; };
 		07A170A32A4A551100FEFE3F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A170A22A4A551100FEFE3F /* SceneDelegate.swift */; };
 		07A170A82A4A551100FEFE3F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07A170A62A4A551100FEFE3F /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		074B35712A4A68A2008134DA /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		0762FEC42A4A71E1002DF0AB /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		07A1709D2A4A551100FEFE3F /* Notes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07A170A02A4A551100FEFE3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07A170A22A4A551100FEFE3F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +51,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		0762FEC32A4A71D0002DF0AB /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				0762FEC42A4A71E1002DF0AB /* StorageManager.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		07A170942A4A551100FEFE3F = {
 			isa = PBXGroup;
 			children = (
@@ -68,6 +78,7 @@
 		07A1709F2A4A551100FEFE3F /* Notes */ = {
 			isa = PBXGroup;
 			children = (
+				0762FEC32A4A71D0002DF0AB /* Service */,
 				07A170B42A4A552800FEFE3F /* App */,
 				07A170B62A4A553C00FEFE3F /* Storyboards */,
 				074B35702A4A6897008134DA /* Models */,
@@ -187,6 +198,7 @@
 				07A170A12A4A551100FEFE3F /* AppDelegate.swift in Sources */,
 				07A170BB2A4A56C300FEFE3F /* ContactInfoViewController.swift in Sources */,
 				074B35722A4A68A2008134DA /* Note.swift in Sources */,
+				0762FEC52A4A71E1002DF0AB /* StorageManager.swift in Sources */,
 				07A170A32A4A551100FEFE3F /* SceneDelegate.swift in Sources */,
 				07A170B92A4A569E00FEFE3F /* ContactListViewController.swift in Sources */,
 			);

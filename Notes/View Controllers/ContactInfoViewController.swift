@@ -18,6 +18,9 @@ final class ContactInfoViewController: UIViewController {
     // MARK: - Public Properties
     unowned var delegate: ContactInfoViewControllerDelegate!
     
+    // MARK: - Private Properties
+    private let storageManager = StorageManager.shared
+    
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,16 +41,21 @@ final class ContactInfoViewController: UIViewController {
     
     // MARK: - IBActions
     @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
+        save()
+    }
+    
+    @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    // MARK: - Private Methods
+    private func save() {
         guard let title = titleTextField.text else { return }
         guard let text = textField.text else { return }
         
         let note = Note(title: title, text: text)
-        delegate.add(note: note)
         
-        navigationController?.popViewController(animated: true)
-    }
-    
-    @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem) {
+        delegate.add(note: note)
         navigationController?.popViewController(animated: true)
     }
 }
