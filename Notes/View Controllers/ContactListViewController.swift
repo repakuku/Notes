@@ -9,6 +9,7 @@ import UIKit
 
 protocol ContactInfoViewControllerDelegate: AnyObject {
     func add(note: Note)
+    func edit(note: Note, at index: Int)
 }
 
 final class ContactListViewController: UITableViewController {
@@ -27,6 +28,16 @@ final class ContactListViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let contactVC = segue.destination as? ContactInfoViewController else { return }
         contactVC.delegate = self
+        
+        if segue.identifier == "showCurrentNote" {
+            guard let indexPath = sender as? IndexPath else { return }
+            let index = indexPath.row
+            contactVC.index = index
+            contactVC.note = notes[index]
+            contactVC.mode = .editCurrentNote
+        } else {
+            contactVC.mode = .createNewNote
+        }
     }
 }
 
@@ -54,14 +65,15 @@ extension ContactListViewController {
 // MARK: - UITableViewDelegate
 extension ContactListViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: "showCurrentNote", sender: indexPath)
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            notes.remove(at: indexPath.row)
+            let index = indexPath.row
+            notes.remove(at: index)
             tableView.deleteRows(at: [indexPath], with: .automatic)
-            storageManager.deleteNote(at: indexPath.row)
+            storageManager.deleteNote(at: index)
         }
     }
 }
@@ -70,6 +82,11 @@ extension ContactListViewController {
 extension ContactListViewController: ContactInfoViewControllerDelegate {
     func add(note: Note) {
         notes.append(note)
+        tableView.reloadData()
+    }
+    
+    func edit(note: Note, at index: Int) {
+        notes[index] = note
         tableView.reloadData()
     }
 }

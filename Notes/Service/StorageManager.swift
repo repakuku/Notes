@@ -29,6 +29,13 @@ final class StorageManager {
         userDefaults.set(data, forKey: key)
     }
     
+    func edit(note: Note, at index: Int) {
+        var notes = fetchNotes()
+        notes[index] = note
+        guard let data = try? JSONEncoder().encode(notes) else { return }
+        userDefaults.set(data, forKey: key)
+    }
+    
     func deleteNote(at index: Int) {
         var notes = fetchNotes()
         notes.remove(at: index)

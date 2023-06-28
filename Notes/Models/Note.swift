@@ -8,6 +8,6 @@
 import Foundation
 
 struct Note: Codable {
-    let title: String
-    let text: String
+    var title: String
+    var text: String
 }

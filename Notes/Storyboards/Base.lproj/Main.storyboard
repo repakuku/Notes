@@ -11,7 +11,7 @@
         <!--Contacts-->
         <scene sceneID="Vzg-y7-kuM">
             <objects>
-                <tableViewController id="oRk-DI-O0P" customClass="ContactListViewController" customModule="UserDefaults" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="oRk-DI-O0P" customClass="ContactListViewController" customModule="Notes" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="fki-w7-IZP">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -38,6 +38,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="orc-6F-aRY" kind="show" identifier="showCurrentNote" id="7h5-6x-4wi"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zBI-Lt-6QD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -46,7 +49,7 @@
         <!--Contact Info View Controller-->
         <scene sceneID="8Wa-rm-OZG">
             <objects>
-                <viewController id="orc-6F-aRY" customClass="ContactInfoViewController" customModule="UserDefaults" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="orc-6F-aRY" customClass="ContactInfoViewController" customModule="Notes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0kU-Ch-bcR">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -114,6 +117,9 @@
             <point key="canvasLocation" x="772" y="-52"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="7h5-6x-4wi"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">

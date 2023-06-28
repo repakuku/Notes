@@ -7,6 +7,11 @@
 
 import UIKit
 
+enum Mode {
+    case createNewNote
+    case editCurrentNote
+}
+
 final class ContactInfoViewController: UIViewController {
     
     // MARK: - IBOutlets
@@ -17,6 +22,9 @@ final class ContactInfoViewController: UIViewController {
     
     // MARK: - Public Properties
     unowned var delegate: ContactInfoViewControllerDelegate!
+    var note: Note!
+    var index: Int!
+    var mode: Mode!
     
     // MARK: - Private Properties
     private let storageManager = StorageManager.shared
@@ -32,6 +40,12 @@ final class ContactInfoViewController: UIViewController {
         }
         
         titleTextField.addAction(action, for: .editingChanged)
+        
+        if mode == .editCurrentNote {
+            doneButton.isEnabled = true
+            titleTextField.text = note.title
+            textField.text = note.text
+        }
     }
 
     // MARK: - Overrided Methods
@@ -50,11 +64,21 @@ final class ContactInfoViewController: UIViewController {
     
     // MARK: - Private Methods
     private func save() {
-        guard let title = titleTextField.text else { return }
-        guard let text = textField.text else { return }
-        let note = Note(title: title, text: text)
-        storageManager.save(note: note)
-        delegate.add(note: note)
+        switch mode {
+        case .createNewNote:
+            guard let title = titleTextField.text else { return }
+            guard let text = textField.text else { return }
+            let note = Note(title: title, text: text)
+            storageManager.save(note: note)
+            delegate.add(note: note)
+        case .editCurrentNote:
+            note.title = titleTextField.text ?? ""
+            note.text = textField.text ?? ""
+            storageManager.edit(note: note, at: index)
+            delegate.edit(note: note, at: index)
+        case .none:
+            break
+        }
         navigationController?.popViewController(animated: true)
     }
 }
