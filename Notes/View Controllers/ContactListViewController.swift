@@ -1,6 +1,6 @@
 //
 //  ContactListViewController.swift
-//  UserDefaults
+//  Notes
 //
 //  Created by Алексей Турулин on 6/26/23.
 //
@@ -26,7 +26,7 @@ final class ContactListViewController: UITableViewController {
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let contactVC = segue.destination as? ContactInfoViewController else { return }
+        guard let contactVC = segue.destination as? ContactViewController else { return }
         contactVC.delegate = self
         
         if segue.identifier == "showCurrentNote" {

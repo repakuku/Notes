@@ -42,5 +42,4 @@ final class StorageManager {
         guard let data = try? JSONEncoder().encode(notes) else { return }
         userDefaults.set(data, forKey: key)
     }
-    
 }

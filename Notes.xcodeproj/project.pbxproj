@@ -15,7 +15,7 @@
 		07A170AA2A4A551200FEFE3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07A170A92A4A551200FEFE3F /* Assets.xcassets */; };
 		07A170AD2A4A551200FEFE3F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07A170AB2A4A551200FEFE3F /* LaunchScreen.storyboard */; };
 		07A170B92A4A569E00FEFE3F /* ContactListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A170B82A4A569E00FEFE3F /* ContactListViewController.swift */; };
-		07A170BB2A4A56C300FEFE3F /* ContactInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A170BA2A4A56C300FEFE3F /* ContactInfoViewController.swift */; };
+		07A170BB2A4A56C300FEFE3F /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A170BA2A4A56C300FEFE3F /* ContactViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +29,7 @@
 		07A170AC2A4A551200FEFE3F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		07A170AE2A4A551200FEFE3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07A170B82A4A569E00FEFE3F /* ContactListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListViewController.swift; sourceTree = "<group>"; };
-		07A170BA2A4A56C300FEFE3F /* ContactInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInfoViewController.swift; sourceTree = "<group>"; };
+		07A170BA2A4A56C300FEFE3F /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				07A170B82A4A569E00FEFE3F /* ContactListViewController.swift */,
-				07A170BA2A4A56C300FEFE3F /* ContactInfoViewController.swift */,
+				07A170BA2A4A56C300FEFE3F /* ContactViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -196,7 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07A170A12A4A551100FEFE3F /* AppDelegate.swift in Sources */,
-				07A170BB2A4A56C300FEFE3F /* ContactInfoViewController.swift in Sources */,
+				07A170BB2A4A56C300FEFE3F /* ContactViewController.swift in Sources */,
 				074B35722A4A68A2008134DA /* Note.swift in Sources */,
 				0762FEC52A4A71E1002DF0AB /* StorageManager.swift in Sources */,
 				07A170A32A4A551100FEFE3F /* SceneDelegate.swift in Sources */,

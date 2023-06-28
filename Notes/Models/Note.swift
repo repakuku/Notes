@@ -1,6 +1,6 @@
 //
-//  Contact.swift
-//  UserDefaults
+//  Note.swift
+//  Notes
 //
 //  Created by Алексей Турулин on 6/26/23.
 //

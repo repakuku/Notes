@@ -1,6 +1,6 @@
 //
-//  AddContactViewController.swift
-//  UserDefaults
+//  ContactViewController.swift
+//  Notes
 //
 //  Created by Алексей Турулин on 6/26/23.
 //
@@ -12,7 +12,7 @@ enum Mode {
     case editCurrentNote
 }
 
-final class ContactInfoViewController: UIViewController {
+final class ContactViewController: UIViewController {
     
     // MARK: - IBOutlets
     @IBOutlet var doneButton: UIBarButtonItem!
